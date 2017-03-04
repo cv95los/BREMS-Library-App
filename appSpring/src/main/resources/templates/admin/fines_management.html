@@ -136,7 +136,7 @@
                 <table class="table table-bordered table-striped" style="background-color: white !important;">
                     <col width="7%">
                         <col width="10%">
-                            <col width="70%">
+                            <col width="20%">
                                 <thead>
                                     <tr>
                                         <th>Identificador</th>
@@ -147,39 +147,19 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td>ID#1</td>
-                                        <td>User</td>
-                                        <td>Short description</td>
-                                        <td>0 days</td>
-                                        <td>
-                                            <a class="fa fa-pencil" href="#"></a>
-                                            &nbsp;&nbsp;
-                                            <a class="fa fa-trash"></a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>ID#2</td>
-                                        <td>User</td>
-                                        <td>Short description</td>
-                                        <td>0 days</td>
-                                        <td>
-                                            <a class="fa fa-pencil" href="#"></a>
-                                            &nbsp;&nbsp;
-                                            <a class="fa fa-trash"></a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>ID#3</td>
-                                        <td>User</td>
-                                        <td>Short description</td>
-                                        <td>0 days</td>
-                                        <td>
-                                            <a class="fa fa-pencil" href="#"></a>
-                                            &nbsp;&nbsp;
-                                            <a class="fa fa-trash"></a>
-                                        </td>
-                                    </tr>
+	                                {{#fines}}
+	                                    <tr>
+	                                        <td>{{ id }}</td>
+	                                        <td>{{#user}}{{name}}{{/user}}</td>
+	                                        <td>Default</td>
+	                                        <td>{{ initDate }} - {{ finishDate }}</td>
+	                                        <td>
+	                                            <a class="fa fa-pencil" href="#"></a>
+	                                            &nbsp;&nbsp;
+	                                            <a class="fa fa-trash"></a>
+	                                        </td>
+	                                    </tr>
+                                    {{/fines}}
                                 </tbody>
                 </table>
 

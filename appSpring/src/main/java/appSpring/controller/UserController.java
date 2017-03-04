@@ -21,6 +21,8 @@ public class UserController {
 
 		User loggedUser = userRepository.findByName(request.getUserPrincipal().getName());
 		model.addAttribute("user", loggedUser);
+		if (request.isUserInRole("ADMIN")) model.addAttribute("admin",true);
+		model.addAttribute("logged",true);
 		model.addAttribute("profile", true);
 
 		return "userProfile";

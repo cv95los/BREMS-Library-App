@@ -1,14 +1,5 @@
-/*price range*/
-
- $('#sl2').slider();
-
-	var RGBChange = function() {
-	  $('#RGB').css('background', 'rgb('+r.getValue()+','+g.getValue()+','+b.getValue()+')')
-	};
-
-/*scroll to top*/
-
 $(document).ready(function(){
+  /*scroll to top
 	$(function () {
 		$.scrollUp({
 	        scrollName: 'scrollUp', // Element ID
@@ -27,4 +18,50 @@ $(document).ready(function(){
 	        zIndex: 2147483647 // Z-Index for the overlay
 		});
 	});
+*/
+  /*
+  * Ajax Paginate
+  */
+  var contBooks = 0;
+  var contMagazines = 0;
+  var coontAll = 0;
+  $("#moreBooks").on("click", function() {
+    contBooks++;
+    $.get("/moreBooks", {
+        page: contBooks
+      })
+      .done(function(data) {
+        if (!$.trim(data)) {
+          $("#moreBooks").attr("disabled", "disabled");
+        } else {
+          $("#books .listItems").append(data);
+        }
+      });
+  });
+  $("#moreMagazines").on("click", function() {
+    contMagazines++;
+    $.get("/moreMagazines", {
+        page: contMagazines
+      })
+      .done(function(data) {
+        if (!$.trim(data)) {
+          $("#moreMagazines").attr("disabled", "disabled");
+        } else {
+          $("#magazines .listItems").append(data);
+        }
+      });
+  });
+  $("#moreAllShelf").on("click", function() {
+    coontAll++;
+    $.get("/moreAllShelf", {
+        page: coontAll
+      })
+      .done(function(data) {
+        if (!$.trim(data)) {
+          $("#moreAllShelf").attr("disabled", "disabled");
+        } else {
+          $("#allShelf .listItems").append(data);
+        }
+      });
+  });
 });

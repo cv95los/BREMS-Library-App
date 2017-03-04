@@ -10,10 +10,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class LoginController {
 	
 	@RequestMapping("/login")
-	public String user(Model model,HttpServletRequest request){
+	public String login(Model model,HttpServletRequest request){
 
-		model.addAttribute("profile", true);
 		if(request.isUserInRole("ADMIN")||request.isUserInRole("USER")) return "forward:/";
+		model.addAttribute("unlogged",true);
 
 		return "login";
 	}
