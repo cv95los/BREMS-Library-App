@@ -66,11 +66,12 @@ public class ResourceRestController {
 	public ResponseEntity<Page<Resource>> getAllResource(HttpSession session,
 			@RequestParam(value = "genre", required = false) String genre,
 			@RequestParam(value = "type", required = false) String type,
+			@RequestParam(value = "name", required = false) String name,
 			@RequestParam (required=false) Integer page) {
 		
 		session.setMaxInactiveInterval(-1);
 		if(page==null) page=0;
-		Page<Resource> resources = resourceService.findByGenreAndTypeAllIgnoreCase(genre, type, page);
+		Page<Resource> resources = resourceService.findByGenreAndNameAndTypeAllIgnoreCase(genre, type, name, page);
 		if (resources.getNumberOfElements() >0) {
 			return new ResponseEntity<>(resources, HttpStatus.OK);
 		} else {

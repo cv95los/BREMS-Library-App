@@ -21,8 +21,8 @@ export class HeaderComponent {
     this.isAdmin = false;
   }
 
-  gotoSearch() {
-    this.router.navigate(['/search']);
+  gotoSearch(search) {
+    this.router.navigate(['/search'], { queryParams: { name: search } });
     this.update('index');
   }
 

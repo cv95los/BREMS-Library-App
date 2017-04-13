@@ -15,4 +15,10 @@ export class ResourceService {
       .map(response => response.json().content)
       .catch(error => Observable.throw('Server error'));
   }
+
+  searchResources(name: string, page: number){
+    return this.http.get(RESOURCES_URL + '?name=' + name + '&page=' + page)
+      .map(response => response.json().content)
+      .catch(error => Observable.throw('Server error'));
+  }
 }

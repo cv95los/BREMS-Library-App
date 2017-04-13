@@ -83,7 +83,10 @@ public class ResourceService {
 		}
 	}
 	
-	public Page<Resource> findByGenreAndTypeAllIgnoreCase(String genre, String type, int page) {
+	public Page<Resource> findByGenreAndNameAndTypeAllIgnoreCase(String genre, String type, String name, int page) {
+		if (name != null){
+			return repository.findByTitleLikeIgnoreCaseOrGenreNameLikeIgnoreCaseOrAuthorLikeIgnoreCaseOrEditorialLikeIgnoreCase("%" + name + "%", "%" + name + "%", "%" + name + "%", "%" + name + "%", new PageRequest(page,3));
+		}
 		if (genre != null && type == null) {
 			return repository.findByGenreNameLikeIgnoreCase(genre, new PageRequest(page,3));
 		} else if (genre != null && type != null) {
