@@ -1,0 +1,158 @@
+<div class="row">
+  <div class="col-sm-12 col-md-12 col-lg-12">
+    <ul class="breadcrumb">
+      <li><a [routerLink]="['']"><i class="fa fa-home" aria-hidden="true"></i>Inicio</a></li>
+      <li class="active">Perfil</li>
+    </ul>
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm-12">
+    <ngb-tabset>
+      <ngb-tab title="Perfil">
+        <template ngbTabContent>
+          <div class="row userProfile">
+            <div class="col-lg-2 avatar">
+              <p>Avatar</p>
+            </div>
+            <div class="col-lg-8">
+              <h4>
+                Información Básica
+                <a href="#" data-toggle="modal" aria-haspopup="true" aria-expanded="false"
+                   data-target="#editProfile-modal">
+                  <span class="glyphicon glyphicon-pencil"></span>(Editar)
+                </a>
+              </h4>
+              <table class="table">
+                <tbody>
+                <tr>
+                  <th scope="row">Nombre completo</th>
+                  <td>{{user?.firstName}} {{user?.lastName1}} {{user?.lastName2}}</td>
+                </tr>
+                <tr>
+                  <th scope="row">Usuario</th>
+                  <td>{{user?.name}}</td>
+                </tr>
+                <tr>
+                  <th scope="row">Email</th>
+                  <td>{{user?.email}}</td>
+                </tr>
+                <tr>
+                  <th scope="row">Tel&eacute;fono</th>
+                  <td>{{user?.telephone}}</td>
+                </tr>
+                <tr>
+                  <th scope="row" class="lastRow">Última vez</th>
+                  <td>hace 34 minutos</td>
+                </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </template>
+      </ngb-tab>
+      <ngb-tab title="Préstamos">
+        <template ngbTabContent>
+          <div class="listItems">
+            <ng-template ngFor let-action [ngForOf]="currentActions">
+              <div class="row item">
+                <div class="col-sm-6 col-md-4 col-lg-2">
+                  <div class="coverItem">
+                    <p>Avatar</p>
+                    <br>
+                    <a href="#"> <span class="glyphicon glyphicon-info-sign"></span>ver libro
+                    </a>
+                  </div>
+                </div>
+                <div class="col-sm-12 col-md-8 col-lg-7 detailsBorrow">
+                  <table class="table">
+                    <tbody>
+                    <tr>
+                      <th>Título</th>
+                      <td>{{action.copy.resource.title}}</td>
+                    </tr>
+                    <tr>
+                      <th>Autor</th>
+                      <td>{{action.copy.resource.author}}</td>
+                    </tr>
+                    <tr>
+                      <th>Fecha de solicitud de préstamo</th>
+                      <td>{{action.dateLoanInit}}</td>
+                    </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </ng-template>
+          </div>
+        </template>
+      </ngb-tab>
+      <ngb-tab title="Historial">
+        <template ngbTabContent>
+          <div class="listItems">
+            <ng-template ngFor let-action [ngForOf]="history">
+              <div class="row item">
+                <div class="col-sm-6 col-md-4 col-lg-2">
+                  <div class="coverItem">
+                    <p>Avatar</p>
+                    <br>
+                    <a href="#"> <span class="glyphicon glyphicon-info-sign"></span>ver libro
+                    </a>
+                  </div>
+                </div>
+                <div class="col-sm-12 col-md-8 col-lg-7 detailsBorrow">
+                  <table class="table">
+                    <tbody>
+                    <tr>
+                      <th>Título</th>
+                      <td>{{action.copy.resource.title}}</td>
+                    </tr>
+                    <tr>
+                      <th>Autor</th>
+                      <td>{{action.copy.resource.author}}</td>
+                    </tr>
+                    <tr>
+                      <th>Fecha de solicitud de préstamo</th>
+                      <td>{{action.dateLoanInit}}</td>
+                    </tr>
+                    <tr>
+                      <th>Fecha de recogida de préstamo</th>
+                      <td>{{action.dateLoanGiven}}</td>
+                    </tr>
+                    <tr>
+                      <th>Fecha de devolución</th>
+                      <td>{{action.dateLoanReturn}}</td>
+                    </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </ng-template>
+          </div>
+        </template>
+      </ngb-tab>
+      <ngb-tab title="Multas">
+        <template ngbTabContent>
+          <div class="tab-pane" id="bookFines">
+          <table class="table">
+            <thead>
+            <tr>
+              <th>Recurso</th>
+              <th>Fecha inicio</th>
+              <th>Fecha fin</th>
+            </tr>
+            </thead>
+            <ng-template ngFor let-fine [ngForOf]="fines">
+              <tr class="warning">
+                <td>{{fine.resourceCopy.resource.title}}</td>
+                <td>{{fine.initDate}}</td>
+                <td>{{fine.finishDate}}</td>
+              </tr>
+            </ng-template>
+          </table>
+        </div>
+        </template>
+      </ngb-tab>
+    </ngb-tabset>
+  </div>
+</div>

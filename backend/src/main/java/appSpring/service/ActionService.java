@@ -12,35 +12,42 @@ import appSpring.model.Action;
 import appSpring.model.User;
 import appSpring.repository.ActionRepository;
 
-
 @Service
 public class ActionService {
 
 	@Autowired
 	private ActionRepository repository;
-	
+
 	public Action findOne(Integer id) {
 		return repository.findOne(id);
 	}
-	
+
 	public List<Action> findAll() {
 		return repository.findAll();
 	}
-	
+
 	public Page<Action> findAll(int page) {
-		return repository.findAll(new PageRequest(page,3));
+		return repository.findAll(new PageRequest(page, 3));
 	}
 
 	public List<Action> findByUser(User user) {
 		return repository.findByUser(user);
 	}
-	
+
 	public Page<Action> findByUser(User user, int page) {
-		return repository.findByUser(user, new PageRequest(page,3));
+		return repository.findByUser(user, new PageRequest(page, 3));
 	}
 
 	public Action findByDateLoanInit(Date dateLoanInit) {
 		return repository.findByDateLoanInit(dateLoanInit);
+	}
+
+	public Page<Action> findByDateLoanReturnAndUser(User user, int page, Date dateLoanReturn) {
+		return repository.findByDateLoanReturnAndUser(dateLoanReturn, user, new PageRequest(page, 3));
+	}
+
+	public Page<Action> findByUserAndDateLoanReturnNot(User user, int page, Date dateLoanReturn) {
+		return repository.findByUserAndDateLoanReturnNot(user, dateLoanReturn, new PageRequest(page, 3));
 	}
 
 	public void save(Action action) {

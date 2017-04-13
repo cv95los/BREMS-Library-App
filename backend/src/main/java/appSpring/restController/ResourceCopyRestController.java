@@ -39,7 +39,7 @@ public class ResourceCopyRestController {
 	@Autowired
 	private ActionService actionService;
 
-	@RequestMapping(value = "/", method = RequestMethod.POST)
+	@RequestMapping(value = "", method = RequestMethod.POST)
 	@ResponseStatus(HttpStatus.CREATED)
 	public ResourceCopy postResourceCopy(@RequestBody ResourceCopy resourceCopy, HttpSession session) {
 
@@ -53,7 +53,7 @@ public class ResourceCopyRestController {
 	}
 
 	@JsonView(ResourceCopyDetail.class)
-	@RequestMapping(value = "/all", method = RequestMethod.GET)
+	@RequestMapping(value = "", method = RequestMethod.GET)
 	public ResponseEntity<Page<ResourceCopy>> getResourceCopies(HttpSession session, @RequestParam (required=false) Integer page) {
 
 		session.setMaxInactiveInterval(-1);

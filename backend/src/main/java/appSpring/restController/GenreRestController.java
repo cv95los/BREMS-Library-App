@@ -34,7 +34,7 @@ public class GenreRestController {
 	@Autowired
 	private ResourceService resourceService;
 
-	@RequestMapping(value = "/", method = RequestMethod.POST)
+	@RequestMapping(value = "", method = RequestMethod.POST)
 	@ResponseStatus(HttpStatus.CREATED)
 	public Genre postGenre(@RequestBody Genre genre, HttpSession session) {
 
@@ -44,7 +44,7 @@ public class GenreRestController {
 	}
 
 	@JsonView(GenreDetail.class)
-	@RequestMapping(value = "/all", method = RequestMethod.GET)
+	@RequestMapping(value = "", method = RequestMethod.GET)
 	public ResponseEntity<Page<Genre>> getAllGenres(HttpSession session, @RequestParam (required=false) Integer page) {
 
 		session.setMaxInactiveInterval(-1);

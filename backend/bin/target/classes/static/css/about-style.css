@@ -1,0 +1,17 @@
+.imag{
+    float: left;
+    margin-right: 30px;
+}
+
+.row > p{
+    text-align: justify;
+}
+
+.row > .titulo > h2{
+    margin-bottom: 20px;
+}
+
+.libimages img{
+    height: 250px;
+    width: 250px;
+}

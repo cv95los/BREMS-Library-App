@@ -1,5 +1,3 @@
-
-
 package appSpring.security;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,39 +21,21 @@ public class RestSecurityConfiguration extends WebSecurityConfigurerAdapter {
 	protected void configure(HttpSecurity http) throws Exception {
 
 		http.antMatcher("/api/**");
-		
+
 		// URLs that need authentication to access to it
-		http.authorizeRequests().antMatchers(HttpMethod.GET,
-				"/api/resources/all",
-				"/api/resources/{id}",
-				"/api/genres/all",
-				"/api/genres/{id}",
-				"/api/resourcetypes/all",
-				"/api/resourcetypes/{id}").permitAll();
-		http.authorizeRequests().antMatchers(HttpMethod.GET,
-				"/api/users/{id}",
-				"/api/loans/all",
-				"/api/loans/{id}",
-				"/api/fines/all",
-				"/api/fines/{id}",
-				"/api/resourcecopies/all",
-				"/api/resourcecopies/{id}").hasAnyRole("USER");
-		http.authorizeRequests().antMatchers(HttpMethod.GET, "/api/users/all").hasAnyRole("ADMIN");
-		http.authorizeRequests().antMatchers(HttpMethod.POST, "/api/users/").hasAnyRole("ADMIN");
-		http.authorizeRequests().antMatchers(HttpMethod.POST, "/api/loans/").hasAnyRole("USER", "ADMIN");
-		http.authorizeRequests().antMatchers(HttpMethod.POST,
-				"/api/resources/",
-				"/api/genres/",
-				"/api/resourcetypes/",
-				"/api/resourcecopies/").hasAnyRole("ADMIN");
+		http.authorizeRequests().antMatchers(HttpMethod.GET, "/api/resources", "/api/resources/{id}", "/api/genres",
+				"/api/genres/{id}", "/api/resourcetypes", "/api/resourcetypes/{id}").permitAll();
+		http.authorizeRequests().antMatchers(HttpMethod.GET, "/api/users/{id}", "/api/loans", "/api/loans/{id}",
+				"/api/fines", "/api/fines/{id}", "/api/resourcecopies", "/api/resourcecopies/{id}").hasAnyRole("USER");
+		http.authorizeRequests().antMatchers(HttpMethod.GET, "/api/users").hasAnyRole("ADMIN");
+		http.authorizeRequests().antMatchers(HttpMethod.POST, "/api/users").hasAnyRole("ADMIN");
+		http.authorizeRequests().antMatchers(HttpMethod.POST, "/api/loans").hasAnyRole("USER", "ADMIN");
+		http.authorizeRequests().antMatchers(HttpMethod.POST, "/api/resources", "/api/genres", "/api/resourcetypes",
+				"/api/resourcecopies").hasAnyRole("ADMIN");
 		http.authorizeRequests().antMatchers(HttpMethod.DELETE, "/api/**/**").hasAnyRole("ADMIN");
 		http.authorizeRequests().antMatchers(HttpMethod.PUT, "/api/users/{id}").hasAnyRole("USER", "ADMIN");
-		http.authorizeRequests().antMatchers(HttpMethod.PUT,
-				"/api/resources/{id}",
-				"/api/loans/{id}",
-				"/api/genres/{id}",
-				"/api/resourcetypes/{id}",
-				"/api/resourcecopies/{id}").hasAnyRole("ADMIN");
+		http.authorizeRequests().antMatchers(HttpMethod.PUT, "/api/resources/{id}", "/api/loans/{id}",
+				"/api/genres/{id}", "/api/resourcetypes/{id}", "/api/resourcecopies/{id}").hasAnyRole("ADMIN");
 
 		// USE HTTP BASIC AUTHENTICATION
 		http.httpBasic();

@@ -16,19 +16,17 @@
                 <div class="col-sm-12 col-md-4 col-lg-3">
                   <div class="coverItem">
                     <img *ngIf="book.picture != null; else otherCont" [src]="img_url + book.picture" class="img-responsive" />
-
                     <ng-template #otherCont>
                       <img [src]="'./assets/img/noPicture.png'" class="img-responsive" />
                     </ng-template>
-
                     <div>
-                      <button *ngIf="book.avaiblereserve; else notEnough" (click)="reserveResource(book.id)" class="btn btn-reserve">Reservar</button>
-
-                      <ng-template #notEnough>
-                        <p class="btn btn-notEnough">No disponible</p>
-                      </ng-template>
+                      <div *ngIf="isLogged">
+                        <button *ngIf="book.avaiblereserve; else notEnough" (click)="reserveResource(book.id)" class="btn btn-reserve">Reservar</button>
+                        <ng-template #notEnough>
+                          <p class="btn btn-notEnough">No disponible</p>
+                        </ng-template>
+                      </div>
                     </div>
-
                   </div>
                 </div>
                 <div class="col-sm-12 col-md-8 col-lg-7 informationItem">
@@ -48,11 +46,10 @@
                 </div>
               </div>
             </ng-template>
-            <button (click)="addBooks()" type="button" class="btn btn-lg btn-block btn-view-more" [class.showBtnMoreBook]="moreBooksActive">Ver más libros</button>
+            <button [class.showBtnMoreBook]="moreBooksActive" (click)="addBooks(true)" type="button" class="btn btn-lg btn-block btn-view-more">Ver más libros</button>
           </div>
         </template>
       </ngb-tab>
-
       <ngb-tab title="Revistas">
         <template ngbTabContent>
           <div class="listItems">
@@ -61,17 +58,16 @@
                 <div class="col-sm-12 col-md-4 col-lg-3">
                   <div class="coverItem">
                     <img *ngIf="magazine.picture != null; else otherCont" [src]="img_url + magazine.picture" class="img-responsive" />
-
                     <ng-template #otherCont>
                       <img [src]="'./assets/img/noPicture.png'" class="img-responsive" />
                     </ng-template>
-
                     <div>
-                      <button *ngIf="magazine.avaiblereserve; else notEnough" (click)="reserveResource(magazine.id)" class="btn btn-reserve">Reservar</button>
-
-                      <ng-template #notEnough>
-                        <p class="btn btn-notEnough">No disponible</p>
-                      </ng-template>
+                      <div *ngIf="isLogged">
+                        <button *ngIf="magazine.avaiblereserve; else notEnough" (click)="reserveResource(magazine.id)" class="btn btn-reserve">Reservar</button>
+                        <ng-template #notEnough>
+                          <p class="btn btn-notEnough">No disponible</p>
+                        </ng-template>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -92,7 +88,7 @@
                 </div>
               </div>
             </ng-template>
-            <button [class.showBtnMoreMagaz]="moreMagazActive" (click)="addMagazines()" type="button" class="btn btn-lg btn-block btn-view-more">Ver más revistas</button>
+            <button [class.showBtnMoreMagaz]="moreMagazActive" (click)="addMagazines(true)" type="button" class="btn btn-lg btn-block btn-view-more">Ver más revistas</button>
           </div>
         </template>
       </ngb-tab>

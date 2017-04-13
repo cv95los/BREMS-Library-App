@@ -19,14 +19,14 @@ All Request URLs can be send by typing http://localhost:8443 followed by the req
 
 |Type|Request description|Request URL|Success response|Error response|
 |----|-------------------|-----------|----------------|--------------|
-|1|Shows all resources (you can apply optional filters like genre and type).|/api/resources/all?genre=genre&type=type|Resource list and *OK* (200).|*NOT_FOUND* (404)|
+|1|Shows all resources (you can apply optional filters like genre and type).|/api/resources?genre=genre&type=type|Resource list and *OK* (200).|*NOT_FOUND* (404)|
 |2|Shows a determinated resource|/api/resources/id|Resource and *OK* (200).|*NOT_FOUND* (404)|
 
 #### POST method
 
 |Type|Request description|Request URL|Request body|Success response|Error response|
 |----|-------------------|-----------|------------|----------------|--------------|
-|1|Creates a new resource.|/api/resources/|See below|New resource and *CREATED* (201)|*BAD_REQUEST* (406)|
+|1|Creates a new resource.|/api/resources|See below|New resource and *CREATED* (201)|*BAD_REQUEST* (406)|
 
 ##### Type 1 method Request body:
 ```json
@@ -105,7 +105,7 @@ All Request URLs can be send by typing http://localhost:8443 followed by the req
 
 |Type|Permissions|Request description|Request URL|Success response|Error response|
 |----|----|---------------|-----------|----------------|--------------|
-|1|Admin|Shows all users.|/api/users/all|User list and *OK* (200).|*NOT_FOUND* (404)|
+|1|Admin|Shows all users.|/api/users|User list and *OK* (200).|*NOT_FOUND* (404)|
 |2|Admin|Shows a determinated user.|/api/users/id|User and *OK* (200).|*NOT_FOUND* (404)|
 |3|User|Shows information about your account.|/api/users/id|User and *OK* (200).|*NOT_FOUND* (404)|
 
@@ -113,7 +113,7 @@ All Request URLs can be send by typing http://localhost:8443 followed by the req
 
 |Type|Request description|Request URL|Request body|Success response|Error response|
 |----|-------------------|-----------|------------|----------------|--------------|
-|1|Creates a new user.|/api/users/|See below|New user and *CREATED* (201)|*BAD_REQUEST* (406)|
+|1|Creates a new user.|/api/users|See below|New user and *CREATED* (201)|*BAD_REQUEST* (406)|
 
 ##### Type 1 method Request body:
 ```json
@@ -199,16 +199,16 @@ All Request URLs can be send by typing http://localhost:8443 followed by the req
 
 |Type|Permissions|Request description|Request URL|Success response|Error response|
 |----|----|---------------|-----------|----------------|--------------|
-|1|Admin|Shows all loans.|/api/loans/all|Action list and *OK* (200).|*NOT_FOUND* (404)|
+|1|Admin|Shows all loans.|/api/loans|Action list and *OK* (200).|*NOT_FOUND* (404)|
 |2|Admin|Shows a determinated loan.|/api/loans/id|Action and *OK* (200).|*NOT_FOUND* (404)|
-|3|User|Shows all user's loans.|/api/loans/all|Action list and *OK* (200).|*NOT_FOUND* (404)|
+|3|User|Shows all user's loans.|/api/loans|Action list and *OK* (200).|*NOT_FOUND* (404)|
 |4|User|Shows information about your loan.|/api/loans/id|Action and *OK* (200).|*NOT_FOUND* (404)|
 
 #### POST method
 
 |Type|Request description|Request URL|Request body|Success response|Error response|
 |----|-------------------|-----------|------------|----------------|--------------|
-|1|Creates a new loan (if user doesn't have a fine).|/api/loans/|See below|New loan and *CREATED* (201)|*BAD_REQUEST* (406)|
+|1|Creates a new loan (if user doesn't have a fine).|/api/loans|See below|New loan and *CREATED* (201)|*BAD_REQUEST* (406)|
 
 ##### Type 1 method Request body:
 ```json
@@ -275,9 +275,9 @@ All Request URLs can be send by typing http://localhost:8443 followed by the req
 
 |Type|Permissions|Request description|Request URL|Success response|Error response|
 |----|----|---------------|-----------|----------------|--------------|
-|1|Admin|Shows all fines.|/api/fines/all|Fine list and *OK* (200).|*NOT_FOUND* (404)|
+|1|Admin|Shows all fines.|/api/fines|Fine list and *OK* (200).|*NOT_FOUND* (404)|
 |2|Admin|Shows a determinated fine.|/api/fines/id|Fine and *OK* (200).|*NOT_FOUND* (404)|
-|3|User|Shows all user's fines.|/api/fines/all|Fine list and *OK* (200).|*NOT_FOUND* (404)|
+|3|User|Shows all user's fines.|/api/fines|Fine list and *OK* (200).|*NOT_FOUND* (404)|
 |4|User|Shows information about your fine.|/api/fines/id|Fine and *OK* (200).|*NOT_FOUND* (404)|
 
 #### DELETE method
@@ -294,14 +294,14 @@ All Request URLs can be send by typing http://localhost:8443 followed by the req
 
 |Type|Request description|Request URL|Success response|Error response|
 |----|---------------|-----------|----------------|--------------|
-|1|Shows all genres.|/api/genres/all|Genre list and *OK* (200).|*NOT_FOUND* (404)|
+|1|Shows all genres.|/api/genres|Genre list and *OK* (200).|*NOT_FOUND* (404)|
 |2|Shows a determinated genre.|/api/genres/id|Genre and *OK* (200).|*NOT_FOUND* (404)|
 
 #### POST method
 
 |Type|Request description|Request URL|Request body|Success response|Error response|
 |----|-------------------|-----------|------------|----------------|--------------|
-|1|Creates a new genre.|/api/genres/|See below|New genre and *CREATED* (201)|*BAD_REQUEST* (406)|
+|1|Creates a new genre.|/api/genres|See below|New genre and *CREATED* (201)|*BAD_REQUEST* (406)|
 
 ##### Type 1 method Request body:
 ```json
@@ -363,14 +363,14 @@ All Request URLs can be send by typing http://localhost:8443 followed by the req
 
 |Type|Request description|Request URL|Success response|Error response|
 |----|---------------|-----------|----------------|--------------|
-|1|Shows all resource types.|/api/resourcetypes/all|Resource type list and *OK* (200).|*NOT_FOUND* (404)|
+|1|Shows all resource types.|/api/resourcetypes|Resource type list and *OK* (200).|*NOT_FOUND* (404)|
 |2|Shows a determinated resource type.|/api/resourcetypes/id|Resource type and *OK* (200).|*NOT_FOUND* (404)|
 
 #### POST method
 
 |Type|Request description|Request URL|Request body|Success response|Error response|
 |----|-------------------|-----------|------------|----------------|--------------|
-|1|Creates a new resource type.|/api/resourcetypes/|See below|New resource type and *CREATED* (201)|*BAD_REQUEST* (406)|
+|1|Creates a new resource type.|/api/resourcetypes|See below|New resource type and *CREATED* (201)|*BAD_REQUEST* (406)|
 
 ##### Type 1 method Request body:
 ```json
@@ -406,14 +406,14 @@ All Request URLs can be send by typing http://localhost:8443 followed by the req
 
 |Type|Request description|Request URL|Success response|Error response|
 |----|---------------|-----------|----------------|--------------|
-|1|Shows all resource copies.|/api/resourcecopies/all|Resource copy list and *OK* (200).|*NOT_FOUND* (404)|
+|1|Shows all resource copies.|/api/resourcecopies|Resource copy list and *OK* (200).|*NOT_FOUND* (404)|
 |2|Shows a determinated resource copy.|/api/resourcecopies/id|Resource copy and *OK* (200).|*NOT_FOUND* (404)|
 
 #### POST method
 
 |Type|Request description|Request URL|Request body|Success response|Error response|
 |----|-------------------|-----------|------------|----------------|--------------|
-|1|Creates a new resource copy.|/api/resourcecopies/|See below|New resource copy and *CREATED* (201)|*BAD_REQUEST* (406)|
+|1|Creates a new resource copy.|/api/resourcecopies|See below|New resource copy and *CREATED* (201)|*BAD_REQUEST* (406)|
 
 ##### Type 1 method Request body:
 ```json

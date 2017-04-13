@@ -1,11 +1,7 @@
-/**
- * Created by Anny on 09/04/2017.
- */
-import {Component} from "@angular/core";
+import {Component} from '@angular/core';
 import {trigger, style, animate, transition} from '@angular/animations';
-import {Router} from "@angular/router";
-import {SessionService} from "../../../service/session.service";
-
+import {Router} from '@angular/router';
+import {SessionService} from '../../../service/session.service';
 
 @Component({
   selector: 'modal-login',

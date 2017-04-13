@@ -1,25 +1,22 @@
-<header>
+<header class="headerWrapper" style="position:relative !important">
   <div class="container">
     <div class="row">
       <div class="col-sm-12 col-md-5 col-lg-5 logo">
-        <a [routerLink]="['']"> <img src="./assets/img/logo.png" alt="logo brems">
+        <a [routerLink]="['']"> <img src="../../../assets/img/logo.png" alt="logo brems">
           <h1>Book Reserve System Management</h1>
         </a>
       </div>
       <div class="col-sm-12 col-md-5 col-lg-3 col-md-offset-2 col-lg-offset-4">
-        <form id="search-form" action="/search" method="get">
-          <div id="search-input">
-            <div class="input-group col-md-12">
-              <input type="text" class="form-control input-lg" name="mySearch" placeholder="Buscar" />
-              <span class="input-group-btn"><button (click)="gotoSearch()" class="glyphicon glyphicon-search" type="submit"></button></span>
-            </div>
+        <div id="search-input">
+          <div class="input-group col-md-12">
+            <input type="text" class="form-control input-lg" name="mySearch" placeholder="Buscar" />
+            <span class="input-group-btn"><button (click)="gotoSearch()" class="glyphicon glyphicon-search" type="submit"></button></span>
           </div>
-        </form>
+        </div>
       </div>
     </div>
   </div>
 </header>
-
 <nav class="navbar navbar-default">
   <div class="container-fluid menuNav">
     <div class="container">
@@ -33,22 +30,36 @@
       </div>
       <div class="collapse navbar-collapse">
         <ul class="nav navbar-nav">
-          <li [class.active]="indexActive"><a [routerLink]="['']">Inicio</a></li>
-          <li [class.active]="profileActive"><a [routerLink]="['/profile']">Perfil</a></li>
-          <li [class.active]="aboutActive"><a [routerLink]="['/about']">Sobre</a></li>
-          <li [class.active]="contactActive"><a [routerLink]="['/contact']">Contacto</a></li>
+          <li [class.active]="indexActive"><a [routerLink]="['']" (click)="update('index')">Inicio</a></li>
+          <li [class.active]="profileActive"><a [routerLink]="['/profile']" (click)="update('profile')">Perfil</a></li>
+          <li [class.active]="aboutActive"><a [routerLink]="['/about']" (click)="update('about')">Sobre</a></li>
+          <li [class.active]="contactActive"><a [routerLink]="['/contact']" (click)="update('contact')">Contacto</a></li>
         </ul>
         <div class="col-lg-7">
           <div class="row">
             <div class="col-lg-4 col-lg-offset-7 paddingNone userDropdownMenu">
-              <div class="btn-group iconMenu" role="group" aria-label="...">
-                <div class="btn-group" role="group">
-                  <button type="button" class="btn btn-default dropdown-toggle" (click)="login()">
-                    <img src="../assets/img/user_undefined_f_40x40.jpg" class="img-circle" />
-                    <span>Iniciar sesi&oacute;n</span> <span class="fa fa-power-off"></span>
-                  </button>
+              <div *ngIf="sessionService.isLogged; else notLogged">
+                <div class="dropdown" dropdown>
+                  <button class="btn btn-primary dropdown-toggle" dropdown-open>
+                    <img src="../../../assets/img/user_undefined_f_40x40.jpg" class="img-circle" />
+                    {{sessionService.user?.name}}</button>
+                  <ul class="dropdown-menu">
+                    <li><a [routerLink]="['/profile']" (click)="update('profile')">Perfil <span class="glyphicon glyphicon-user"></span></a>
+                    <li *ngIf="sessionService.isAdmin"><a href="#" (click)="select()">Panel de administración <span class="glyphicon glyphicon-cog"></span></a></li>
+                    <li><a href="#" (click)="logOut()">Cerrar sesión <span class="glyphicon glyphicon-log-out"></span></a></li>
+                  </ul>
                 </div>
               </div>
+              <ng-template #notLogged>
+                <div class="btn-group iconMenu" role="group" aria-label="...">
+                  <div class="btn-group" role="group">
+                    <button type="button" class="btn btn-default dropdown-toggle" (click)="login()">
+                      <img src="../../../assets/img/user_undefined_f_40x40.jpg" class="img-circle" />
+                      <span>Iniciar sesión</span> <span class="fa fa-power-off"></span>
+                    </button>
+                  </div>
+                </div>
+              </ng-template>
             </div>
           </div>
         </div>
@@ -56,4 +67,3 @@
     </div>
   </div>
 </nav>
-

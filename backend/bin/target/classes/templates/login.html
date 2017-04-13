@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>BREMS</title>
+    <!-- Boostrap Library -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link type="text/css" href="css/main-style.css" rel="stylesheet" />
+</head>
+
+<body>
+    {{> topBar}}
+
+    <div class="container content">
+        <div class="row">
+            <div class="col-sm-12 col-md-12 col-lg-12">
+                <ul class="breadcrumb">
+                    <li><a href="/"><i class="fa fa-home" aria-hidden="true"></i>Inicio</a></li>
+                    <li class="active">Iniciar sesión</li>
+                </ul>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-3 col-md-3 col-lg-3"></div>
+            <div class="col-sm-6 col-md-6 col-lg-6">
+                <form id="login-form" action="/login" method="post">
+                    <div class="modal-body">
+                        <div id="div-login-msg">
+                            <div id="icon-login-msg" class="glyphicon glyphicon-chevron-right"></div> <span id="text-login-msg">Escribe tu usuario y contraseña</span> </div>
+                        <input id="username" class="form-control" name="username" type="text" placeholder="Usuario" required>
+                        <input id="password" class="form-control" name="password" type="password" placeholder="Contraseña" required>
+                        {{#loginError}}
+                        <div class="errorLogin">Datos erróneos. Por favor, inténtelo otra vez.</div>
+                        {{/loginError}}
+                    </div>
+                    <div class="modal-footer">
+                        <div>
+                            <button type="submit" class="btn btn-primary btn-lg btn-block">Iniciar sesión</button>
+                        </div>
+                        <div>
+                            <a href="/"><button id="login_lost_btn" type="button" class="btn btn-link">Olvidé mi contraseña</button></a>
+                            <a href="/register"><button id="login_register_btn" type="button" class="btn btn-link">Registrarse</button></a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    {{> footer}}
+</body>
+
+</html>

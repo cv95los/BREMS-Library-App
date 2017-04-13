@@ -1,0 +1,578 @@
+/*background-color: #0A4E4D; verde oscuro*/
+
+
+/*background-color: #b1ad27; verde claro*/
+
+
+/*background-color: #bbe0de; azul claro*/
+
+
+/*background-color: #9a5c28; marrón*/
+
+.show-grid [class^="col-"] {
+    /*padding-top: 10px;
+    padding-bottom: 10px;*/
+    border: 1px solid #AAA;
+}
+
+.show-elements {
+    border: 1px solid #AAA;
+}
+
+
+/************************
+        GENERALES
+*************************/
+
+body {
+    background-color: #faf9f9;
+    color: #3b3a3b;
+}
+
+a {
+    color: #215E5D;
+}
+
+a:focus,
+a:hover {
+    color: #215E5D;
+    opacity: 0.75;
+    text-decoration: none;
+}
+
+a .moreInfo,
+a:hover .moreInfo {
+    color: #337ab7;
+}
+
+.paddingNone {
+    padding: 0px;
+}
+
+.marginNone {
+    margin: 0px;
+}
+
+.hide {
+    display: none;
+}
+
+.visibilityHide {
+    visibility: hidden;
+}
+
+
+/************************
+        HEADER
+*************************/
+
+header .container {
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+header .logo:hover {
+    opacity: 0.80;
+    cursor: pointer;
+}
+
+header .logo img {
+    height: 56px;
+    padding-right: 10px;
+    margin-right: 10px;
+    border-right: 1px solid #3b3a3b;
+}
+
+header .logo h1 {
+    font-size: 20px;
+    color: #3b3a3b;
+    display: inline;
+}
+
+.userdrop {
+    background-color: #215E5D;
+}
+
+#search-input {
+    padding: 3px;
+    border: solid 1px #E4E4E4;
+    border-radius: 6px;
+    background-color: #fff;
+}
+
+#search-input input {
+    border: 0;
+    box-shadow: none;
+}
+
+#search-input button {
+    margin: 2px 0 0 0;
+    background: none;
+    box-shadow: none;
+    border: 0;
+    color: #666666;
+    padding: 0 8px 0 10px;
+    border-left: solid 1px #ccc;
+}
+
+#search-input button:hover {
+    border: 0;
+    box-shadow: none;
+    border-left: solid 1px #ccc;
+}
+
+#search-input .glyphicon-search {
+    font-size: 23px;
+}
+
+
+/************************
+        Menu Nav
+*************************/
+
+.navbar {
+    border: none;
+}
+
+.menuNav {
+    background-color: rgba(10, 78, 77, 0.9);
+}
+
+.menuNav .navbar-collapse {
+    padding: 0;
+}
+
+.menuNav .nav li a {
+    text-transform: uppercase;
+    text-align: center;
+    color: #ffffff;
+}
+
+.menuNav .nav li.active a,
+.menuNav .nav li a:hover,
+.menuNav .nav li a:focus,
+.userDropdownMenu .dropdown-toggle[data-toggle]:hover,
+.userDropdownMenu .dropdown-toggle[data-toggle]:focus {
+    border-bottom: 4px solid #b1ad27;
+    color: #555;
+    background-color: #e7e7e7;
+}
+
+
+/** Login **/
+
+.userDropdownMenu .dropdown-toggle[data-toggle] {
+    padding-bottom: 4px;
+    background-color: transparent;
+    border: none;
+    color: #ffffff;
+    border-radius: 0px;
+    margin-left: 149px;
+}
+
+.modal-footer .btn-primary {
+    background-color: rgba(10, 78, 77, 0.9);
+}
+
+.modal-footer .btn-primary:hover {
+    background-color: rgba(10, 78, 77, 1);
+}
+
+.userdropmenu {
+    padding-left: 149px;
+}
+
+
+/************************
+        Sub Header
+*************************/
+
+.mainOptionsUser {
+    margin-top: 5px;
+    height: 50px;
+    background-color: rgba(10, 78, 77, 0.9);
+}
+
+.mainOptionsUser .search {
+    color: #ffffff;
+    margin-left: 68px;
+}
+
+.mainOptionsUser .search .input-group {
+    height: 35px;
+    margin-top: 8px;
+}
+
+.mainOptionsUser .search .inputSearch,
+.mainOptionsUser .search .btn-default {
+    height: 35px;
+    background-color: rgba(0, 0, 0, 0.3);
+    color: #ffffff;
+    border: 0px;
+    border-radius: 0px;
+}
+
+.mainOptionsUser .search .glyphicon-search {
+    font-size: 18px;
+}
+
+.mainOptionsUser .userDropdownMenu {
+    width: 360px;
+    background-color: transparent;
+    padding-left: 25px;
+}
+
+.mainOptionsUser .userDropdownMenu .iconMenu .icon,
+.mainOptionsUser .userDropdownMenu .iconMenu .dropdown-toggle {
+    height: 50px;
+    border-radius: 0px;
+}
+
+.mainOptionsUser .userDropdownMenu .iconMenu .icon {
+    width: 56px;
+    padding: 13px;
+    font-size: 19px;
+    vertical-align: center;
+}
+
+.mainOptionsUser .userDropdownMenu .btn-default:hover,
+.mainOptionsUser .userDropdownMenu .btn-default:active:hover,
+.mainOptionsUser .userDropdownMenu .btn-default:active,
+.mainOptionsUser .userDropdownMenu .btn-default:focus,
+.mainOptionsUser .userDropdownMenu .dropdown-toggle:hover,
+.mainOptionsUser .userDropdownMenu .dropdown-toggle:focus {
+    background-color: rgba(0, 0, 0, 0.38);
+    border: 0px;
+}
+
+.mainOptionsUser .userDropdownMenu .iconMenu .icon-alarm,
+.mainOptionsUser .userDropdownMenu .iconMenu .icon-book,
+.mainOptionsUser .userDropdownMenu .iconMenu .icon-alarm.active,
+.mainOptionsUser .userDropdownMenu .iconMenu .icon-book.active {
+    color: #faf9f9;
+}
+
+.mainOptionsUser .userDropdownMenu .iconMenu .icon .badge {
+    position: absolute;
+    top: 3px;
+    right: 35px;
+    padding: 3px 5px;
+    color: #faf9f9;
+    font-weight: normal;
+}
+
+.mainOptionsUser .userDropdownMenu .iconMenu .icon-alarm .badgeAlarm {
+    background-color: #EA1313;
+}
+
+.mainOptionsUser .userDropdownMenu .iconMenu .icon-book .badgeBook {
+    background-color: rgba(177, 173, 39, 0.91);
+}
+
+.mainOptionsUser .userDropdownMenu .btn-default,
+.mainOptionsUser .userDropdownMenu .btn-group {
+    border: 0px;
+    background-color: transparent;
+}
+
+.mainOptionsUser .userDropdownMenu .iconMenu .dropdown-toggle {
+    width: 214px;
+    text-align: right;
+    color: #faf9f9;
+}
+
+.mainOptionsUser .userDropdownMenu .iconMenu .dropdown-toggle .img-circle {
+    margin-top: -3px;
+    margin-right: 6px;
+}
+
+.mainOptionsUser .userDropdownMenu .iconMenu .dropdown-toggle .caret {
+    margin-left: 5px;
+}
+
+.mainOptionsUser .userDropdownMenu .dropdown-menu {
+    top: 97%;
+    left: 44px;
+    border-radius: 0px;
+}
+
+.mainOptionsUser .userDropdownMenu .dropdown-menu li a {
+    color: #3b3a3b;
+}
+
+.mainOptionsUser .userDropdownMenu .dropdown-menu .fa-user,
+.mainOptionsUser .userDropdownMenu .dropdown-menu .fa-power-off {
+    margin-left: -6px;
+    margin-right: 8px;
+}
+
+
+/************************
+        CONTENT
+*************************/
+
+
+/*Nav tabs*/
+
+.content .nav-tabs {
+    font-size: 16px;
+}
+
+.content .nav-tabs li a:hover,
+.nav-tabs li a:focus:hover,
+.nav-tabs li a:active:hover {
+    border: 1px solid #ddd;
+    background-color: #FAF9F9;
+}
+
+.content .nav-tabs li.active a,
+.nav-tabs li.active a:focus,
+.nav-tabs li.active a:hover {
+    background-color: #faf9f9;
+    border-bottom-color: transparent;
+    opacity: 1;
+    color: #A2A2A2;
+}
+
+.content .nav-tabs li a:focus,
+.nav-tabs li a:active {
+    background-color: transparent;
+}
+
+
+/*Breadcrumb*/
+
+.content .titleBreadcrumb {
+    margin-bottom: 10px;
+}
+
+.content .breadcrumb li i {
+    margin-right: 5px;
+}
+
+.content .breadcrumb .active {
+    color: #A2A2A2;
+}
+
+.content .titleBreadcrumb h2 {
+    float: left;
+    margin: 0px;
+    font-size: 32px;
+}
+
+
+/* Items */
+
+.content .listItems {
+    margin-top: 15px;
+}
+
+.content .item {
+    margin: 30px 0;
+}
+
+.content .coverItem img {
+    width: 80%;
+    margin: auto;
+}
+
+.content .coverItem .btn-reserve {
+    color: #faf9f9;
+    background-color: rgb(92, 184, 92);
+    border-radius: 0px;
+    margin: auto;
+    width: 80%;
+    display: block;
+}
+
+.content .coverItem .btn-reserve:hover {
+    background-color: rgb(68, 157, 68);
+}
+
+.content .coverItem .btn-return {
+    color: #faf9f9;
+    background-color: #5bc0de;
+    border-radius: 0px;
+    margin: auto;
+    width: 80%;
+    display: block;
+}
+
+.content .coverItem .btn-return:hover {
+    background-color: rgb(49, 176, 213);
+}
+
+.content .coverItem .btn-notEnough {
+    color: #faf9f9;
+    background-color: rgb(217, 83, 79);
+    border-radius: 0px;
+    margin: auto;
+    width: 80%;
+    display: block;
+}
+
+.content .coverItem .btn-notEnough:hover {
+    background-color: rgb(201, 48, 44);
+}
+
+.content .authorName {
+    color: #A2A2A2;
+}
+
+.content .ratingValue {
+    font-size: 13px;
+}
+
+.content .stars {
+    padding-left: 0px;
+    width: 96px;
+    color: #AAAAAA;
+    display: inline-block;
+}
+
+.content .staticStar {
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    white-space: nowrap;
+    background-repeat: no-repeat;
+}
+
+.content .stars .p10 {
+    background-image: url("../img/star_full.png");
+    background-size: 15px;
+}
+
+.content .stars .p6 {
+    background-image: url("../img/star_p6.png");
+    background-size: 15px;
+}
+
+.content .stars .p0 {
+    background-image: url("../img/star_empty.png");
+    background-size: 15px;
+}
+
+.content .informationItem .description p {
+    font-size: 1.20em;
+}
+
+.content .listItems .available {
+    margin-top: 11px;
+}
+
+.content .available .glyphicon {
+    font-size: 12px;
+}
+
+.content .textAvailable {
+    font-size: 12px;
+    font-style: italic;
+    margin-left: 3px;
+}
+
+.content .listItems .available.stockAvailable {
+    color: #148014;
+}
+
+.content .listItems .available.stockUnavailable {
+    color: #A09F9F;
+}
+
+.btn-view-more {
+    background-color: rgba(10, 78, 77, 0.9);
+    color: #ffffff;
+}
+
+.btn-view-more:hover {
+    background-color: rgba(10, 78, 77, 0.75);
+    color: #ffffff;
+}
+
+
+/************************
+        FOOTER
+*************************/
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    /* Margin bottom by footer height */
+    margin-bottom: 100px;
+}
+
+footer {
+    background-color: #9a5c28;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 60px;
+}
+
+footer .footerLinks div {
+    padding-left: 80px;
+    padding-bottom: 15px;
+    padding-top: 15px;
+}
+
+footer h3 {
+    text-transform: uppercase;
+    padding-left: 40px;
+    font-size: 20px;
+}
+
+footer ul {
+    list-style-type: none;
+}
+
+footer ul li {
+    margin-bottom: 8px;
+}
+
+footer ul li a,
+footer ul li a:link {
+    color: #A09F9F;
+}
+
+footer ul li a:hover,
+footer ul li a:focus {
+    color: #9a5c28;
+    text-decoration: none;
+}
+
+.copyright {
+    padding: 20px;
+    color: #faf9f9;
+    font-size: 12px;
+    display: block;
+}
+
+#success_message {
+    display: none;
+}
+
+#tohide {
+    display: none;
+}
+
+.errorLogin {
+    color: red;
+}
+
+
+/*
+.content .bookStand {
+    margin-top: 30px;
+}
+.content .bookListStand {
+    height: 860px;
+    background-image: url("../img/book_stand.png");
+    background-repeat: no-repeat;
+    background-size: 900px 825px;
+    background-position: center center;
+}*/
+
+/

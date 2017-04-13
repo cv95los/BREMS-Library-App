@@ -1,0 +1,95 @@
+/************************
+       PROFILE BOOK
+*************************/
+
+.contentProfile {
+    height: auto;
+}
+
+.contentProfile .profileItem {
+    height: auto;
+}
+
+.contentProfile .profileItem .btn-success {
+    width: 187px;
+    margin-top: 19px;
+}
+
+.contentProfile .profileItem .information {
+    height: 320px;
+    padding-right: 70px;
+}
+
+.contentProfile .profileItem .available {
+    margin-top: 5px;
+    color: #A09F9F;
+}
+
+.contentProfile .profileItem .available .graphicAvailable {
+    width: 56px;
+    height: 12px;
+    display: inline-block;
+}
+
+.contentProfile .profileItem .available .stockGreen {
+    background-image: url("../img/stock_green.gif");
+}
+
+.contentProfile .profileItem .available .stockYellow {
+    background-image: url("../img/stock_check_yellow.gif");
+}
+
+.contentProfile .profileItem .available .stockEmpty {
+    background-image: url("../img/stock_check_empty.gif");
+}
+
+.contentProfile .profileItem .available {
+    text-align: left;
+}
+
+.contentProfile .profileItem .available .textAvailable {
+    margin-left: 2px;
+    display: block;
+}
+
+.contentProfile .profileItem .coverItem img {
+    width: auto;
+    height: auto;
+    margin-top: 12px;
+}
+
+.contentProfile .informationAuthor {
+    padding-left: 5px;
+}
+
+.contentProfile .informationAuthor h3 {
+    font-size: 12px;
+    font-weight: bold;
+    text-transform: uppercase;
+    border-bottom: 1px solid #D8D8D8;
+    padding-bottom: 5px;
+    margin-bottom: 15px;
+}
+
+.contentProfile .informationAuthor a {
+    text-align: right;
+    display: block;
+    font-size: 13px;
+}
+
+.contentProfile .informationAuthor .author {
+    margin-bottom: 20px;
+}
+
+.contentProfile .informationAuthor .author img {
+    width: 80px;
+    height: 96px;
+    vertical-align: middle;
+    float: right;
+    margin-left: 24px;
+}
+
+.listBooks .thumbnail {
+    background: none;
+    border: none;
+}

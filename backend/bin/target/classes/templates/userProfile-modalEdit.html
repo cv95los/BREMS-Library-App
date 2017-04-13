@@ -1,0 +1,88 @@
+<!-- // Edit modal user profile-->
+<div class="modal fade" id="editProfile-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header" align="center">
+				<h3>Informaci&oacute;n B&aacute;sica</h3>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+				</button>
+			</div>
+			<div id="div-forms">
+
+				<!-- edit form -->
+				<form class="form-editProfile" id="login-form" action="/user_profile/edit/{{id}}" method="post" enctype="multipart/form-data">
+					<div class="modal-body">
+						<div class="form-group">
+
+							<div class="form-group">
+								<label for="userAvatar">Modificar</label>
+								<input type="file" id="userAvatar" name="avatar">
+								<p class="help-block">Selecciona una imagen</p>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label for="nombre">Nombre</label>
+							<input type="text" class="form-control" id="nombre" name="firstName" placeholder="Nombre" value="{{firstName}}">
+						</div>
+
+						<div class="form-group">
+							<label for="apellido1">Primer apellido</label>
+							<input type="text" class="form-control" id="apellido1" name="lastName1" placeholder="Primer Apellido" value="{{ lastName1 }}">
+						</div>
+
+						<div class="form-group">
+							<label for="apellido2">Segundo apellido</label>
+							<input type="text" class="form-control" id="apellido2" name="lastName2" placeholder="Segundo Apellido" value="{{ lastName2 }}">
+						</div>
+
+						<div class="form-group">
+							<label for="email">Email</label>
+							<input type="email" class="form-control" id="email" name="email" placeholder="Email" value="{{ email }}">
+						</div>
+
+						<div class="form-group">
+							<label for="telefono">Tel&eacute;fono</label>
+							<div class="checkbox viewTelephone">
+								<label>
+							  <input type="checkbox" name="viewTelephone" value="{{ viewTelephone }}"/> Mostrar en mi perfil
+							</label>
+							</div>
+							<input type="text" class="form-control" id="telefono" name="telephone" placeholder="Telefono" value="{{telephone}}">
+						</div>
+
+						<input type="submit" class="btn btn-link">
+					</div>
+				</form>
+
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- edit user biography -->
+<div class="modal fade" id="editBiography-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header" align="center">
+				<h3>Mi Biograf&iacute;a</h3>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+				</button>
+			</div>
+			<div id="div-forms">
+
+				<!-- edit form -->
+				<form class="form-editProfile" id="login-form" action="/user_profile/edit/biography/{{id}}" action="/editUserProfile/biography" method="post">
+					<div class="modal-body">
+						<div class="form-group biographyEdit">
+							<textarea name="biography" rows=5 cols=75>{{biography}}</textarea>
+						</div>
+						<button type="submit" class="btn btn-link">Modificar</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>

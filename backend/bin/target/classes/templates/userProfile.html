@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>BREMS</title>
+	<!-- Boostrap Library -->
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" />
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+	<link type="text/css" href="css/main-style.css" rel="stylesheet" />
+	<link type="text/css" href="css/profileUser-style.css" rel="stylesheet" />
+</head>
+
+<body>
+	{{> topBar}}
+
+	<div class="container content">
+		<div class="row">
+			<div class="col-sm-12 col-md-12 col-lg-12">
+				<ul class="breadcrumb">
+					<li><a href="/"><i class="fa fa-home" aria-hidden="true"></i>Inicio</a></li>
+					<li class="active">Perfil</li>
+				</ul>
+			</div>
+		</div>
+
+		<!--  MENU USER PROFILE -->
+		<div class="row">
+			<div class="col-sm-12">
+				<ul class="nav nav-tabs nav-justified" role="tablist">
+					<li role="presentation" class="active"><a href="#userProfile" aria-controls="userProfile" role="tab" data-toggle="tab">Perfil</a>
+					</li>
+					<li role="presentation"><a href="#historyBookLoans" aria-controls="bookLoans" role="tab" data-toggle="tab">Historial</a>
+					</li>
+					<li role="presentation"><a href="#bookLoans" aria-controls="bookLoans" role="tab" data-toggle="tab">Préstamos</a>
+					</li>
+					<li role="presentation"><a href="#bookFines" aria-controls="bookFines" role="tab" data-toggle="tab">Multas</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+
+		{{#user}}
+		<!-- CONTENT USER PROFILE -->
+		<div class="row">
+			<div class="col-sm-12">
+				<div class="tab-content">
+
+					<!-- USER PROFILE -->
+					<div role="tabpanel" class="tab-pane active" id="userProfile">
+						<div class="row userProfile">
+							<div class="col-lg-2 avatar">
+								<img src="/img/avatars/{{avatar}}" alt="avatarUser" class="img-responsive avatar">
+							</div>
+							<div class="col-lg-8">
+								<h4>
+									Información Básica
+									<a href="#" data-toggle="modal" aria-haspopup="true" aria-expanded="false" data-target="#editProfile-modal">
+										<span class="glyphicon glyphicon-pencil"></span >(Editar)
+									</a>
+								</h4>
+
+								<table class="table">
+									<tbody>
+										<tr>
+											<th scope="row">Nombre completo</th>
+											<td>{{firstName}} {{lastName1}} {{lastName2}}</td>
+										</tr>
+										<tr>
+											<th scope="row">Usuario</th>
+											<td>{{name}}</td>
+										</tr>
+										<tr>
+											<th scope="row">Email</th>
+											<td>{{email}}</td>
+										</tr>
+										{{#viewTelephone}}
+										<tr>
+											<th scope="row">Tel&eacute;fono</th>
+											<td>{{telephone}}</td>
+										</tr>
+										{{/viewTelephone}}
+
+										<tr>
+											<th scope="row">Aficiones literarias</th>
+											<td>
+												{{#literaryHobby}}
+												<span>{{.}} | </span> {{/literaryHobby}}
+											</td>
+										</tr>
+										<tr>
+											<th scope="row" class="lastRow">Última vez</th>
+											<td>hace 34 minutos</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+						<div class="row otherUserProfile">
+							<div class="col-lg-4 biographic">
+								<h4>
+									Mi Biografía
+									<a href="#" data-toggle="modal" aria-haspopup="true" aria-expanded="false" data-target="#editBiography-modal">
+										<span class="glyphicon glyphicon-pencil"></span >(Editar)
+									</a>
+								</h4> {{#biography}}
+								<p>{{biography}}</p>
+								{{/biography}} {{^biography}}
+								<p>(No hay información para mostrar)</p>
+								{{/biography}}
+							</div>
+						</div>
+					</div>
+
+					<!--  HISTORIAL -->
+					<div role="tabpanel" class="tab-pane" id="historyBookLoans">
+						<div class="row contentBookHistory">
+							<div class="col-lg-12">
+								<div class="listItems">
+									{{#history}}
+										{{>listActions}}
+									{{/history}}
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<!-- PRESTAMOS -->
+					<div role="tabpanel" class="tab-pane" id="bookLoans">
+						<div class="listItems">
+							{{#loans}}
+								{{>listActions}}
+							{{/loans}}
+						</div>
+					</div>
+
+					<!-- MULTAS -->
+					<div role="tabpanel" class="tab-pane" id="bookFines">
+						<table class="table">
+							<thead>
+								<tr>
+									<th>Recurso</th>
+									<th>Fecha inicio</th>
+									<th>Fecha fin</th>
+								</tr>
+							</thead>
+							{{#penalties}}
+								<tr class="warning">
+									<td>{{#resourceCopy}}{{resource.title}}{{/resourceCopy}}</td>
+									<td>{{initDate}}</td>
+									<td>{{finishDate}}</td>
+								</tr>
+							{{/penalties}}
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+		{{> userProfile-modalEdit}} {{/user}}
+	</div>
+	{{> footer}}
+</body>
+
+</html>

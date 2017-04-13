@@ -1,0 +1,31 @@
+#map_model {
+    overflow: hidden;
+    height: 100%;
+    width: 100%;
+}
+
+#gmap_canvas {
+    height: 500px;
+    width: 100%;
+}
+
+#gmap-canvas img {
+    max-width: none!important;
+    background: none!important;
+}
+
+.map_model img {
+    max-width: none!important;
+}
+
+@media (max-width: 767px) {
+    #map_model {
+        height: 350px;
+    }
+}
+
+@media (max-width: 479px) {
+    #map_model {
+        height: 250px;
+    }
+}

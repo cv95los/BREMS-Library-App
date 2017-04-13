@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {{ >head}}
+    <!--
+    <meta charset="UTF-8">
+    <title>BREMS</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link type="text/css" href="css/main-style.css" rel="stylesheet" />
+-->
+    <link type="text/css" href="/css/profileBook-style.css" rel="stylesheet" /> </head>
+
+<body>
+    {{> topBar}}
+
+    <div class="container content">
+        {{#resource}}
+        <div class="row">
+            <div class="col-sm-12 col-md-12 col-lg-12">
+                <ul class="breadcrumb">
+                    <li><a href="/"><i class="fa fa-home" aria-hidden="true"></i>Inicio</a></li>
+                    <li class="active">{{ title }}</li>
+                </ul>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12 col-md-12 col-lg-12">
+                <h2>{{ title }}</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12 col-md-12 col-lg-12">
+                <div class="row">
+                    <div class="col-lg-3">
+                        <div class="coverItem">
+                            {{#picture}}
+                            <img src="/img/books/{{picture}}" class="img-responsive" /> {{/picture}} {{^picture}}
+                            <img src="/img/noPicture.png" class="img-responsive" /> {{/picture}}
+                        </div>
+                    </div>
+                    <!-- informacion del libro -->
+                    <div class="col-lg-9 information">
+                        <h5 class="authorName"><span>por </span>{{ author }}</h5>
+                        <ul class="stars">
+                            <li class="staticStar p10"></li>
+                            <li class="staticStar p10"></li>
+                            <li class="staticStar p10"></li>
+                            <li class="staticStar p6"></li>
+                            <li class="staticStar p0"></li>
+                        </ul> <span class="ratingValue">3.66</span>
+                        <div class="description">
+                            {{ description }}
+                        </div>
+                        <div>
+                            <!-- // - text available -->
+                            <div class="available">
+                                {{#available}}
+                                <span class="graphicAvailable stockGreen"></span>
+                                <span class="textAvailable">Disponible</span>{{/available}} {{^available}}
+                                <span class="graphicAvailable stockYellow"></span>
+                                <span class="textAvailable">No disponible</span>{{/available}}
+                                <!--<span class="graphicAvailable stockYellow"></span>-->
+                                <!--<span class="glyphicon glyphicon-ban-circle"></span>-->
+                            </div>
+                            <!-- // - button reserved -->
+                            <button type="button" class="btn btn-success">Reservar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- List Books -->
+        <div class="listBooks">
+            <div class="row">
+                <div class="col-sm-12 col-md-12 col-lg-12">
+                    <hr>
+                    <h3>Similares</h3> {{#similarResources}}
+                    <div class="col-xs-6 col-md-2">
+                        <a href="/book/{{id}}" class="thumbnail"> <img src="/img/books/{{picture}}" alt="..."> </a>
+                    </div>
+                    {{/similarResources}}
+                </div>
+            </div>
+        </div> {{/resource}}
+    </div>
+
+    {{> footer}}
+</body>
+
+</html>

@@ -8,6 +8,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonView;
 
 @Entity
@@ -23,8 +24,10 @@ public class Fine {
 	private Integer id;
 
 	@JsonView(Basic.class)
+	@JsonFormat(shape=JsonFormat.Shape.STRING, pattern="yyyy-MM-dd' 'HH:mm:ss")
 	private Date finishDate;
 	@JsonView(Basic.class)
+	@JsonFormat(shape=JsonFormat.Shape.STRING, pattern="yyyy-MM-dd' 'HH:mm:ss")
 	private Date initDate;
 
 	@ManyToOne

@@ -40,7 +40,7 @@ public class ResourceRestController {
 	private ResourceCopyService resourceCopyService;
 
 	@JsonView(ResourceDetail.class)
-	@RequestMapping(value = "/", method = RequestMethod.POST)
+	@RequestMapping(value = "", method = RequestMethod.POST)
 	public ResponseEntity<Resource> postResource(@RequestBody Resource resource, HttpSession session) {
 
 		session.setMaxInactiveInterval(-1);
@@ -62,7 +62,7 @@ public class ResourceRestController {
 	}
 
 	@JsonView(ResourceDetail.class)
-	@RequestMapping(value = "/all", method = RequestMethod.GET)
+	@RequestMapping(value = "", method = RequestMethod.GET)
 	public ResponseEntity<Page<Resource>> getAllResource(HttpSession session,
 			@RequestParam(value = "genre", required = false) String genre,
 			@RequestParam(value = "type", required = false) String type,

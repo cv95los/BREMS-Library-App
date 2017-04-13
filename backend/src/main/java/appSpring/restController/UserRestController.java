@@ -40,7 +40,7 @@ public class UserRestController {
 	private LogicService logicService;
 
 	@JsonView(UserDetail.class)
-	@RequestMapping(value = "/", method = RequestMethod.POST)
+	@RequestMapping(value = "", method = RequestMethod.POST)
 	public ResponseEntity<User> postUser(@RequestBody User user) {
 
 		int status = logicService.createAnUser(user);
@@ -52,7 +52,7 @@ public class UserRestController {
 	}
 
 	@JsonView(UserDetail.class)
-	@RequestMapping(value = "/all", method = RequestMethod.GET)
+	@RequestMapping(value = "", method = RequestMethod.GET)
 	public ResponseEntity<Page<User>> getUsers(HttpSession session, @RequestParam (required=false) Integer page) {
 
 		session.setMaxInactiveInterval(-1);

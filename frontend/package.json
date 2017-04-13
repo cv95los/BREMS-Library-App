@@ -12,6 +12,7 @@
   },
   "private": true,
   "dependencies": {
+    "@angular/animations": "~4.0.1",
     "@angular/common": "^4.0.0",
     "@angular/compiler": "^4.0.0",
     "@angular/core": "^4.0.0",
@@ -20,12 +21,13 @@
     "@angular/platform-browser": "^4.0.0",
     "@angular/platform-browser-dynamic": "^4.0.0",
     "@angular/router": "^4.0.0",
-    "@angular/animations": "~4.0.1",
     "@ng-bootstrap/ng-bootstrap": "^1.0.0-alpha.22",
     "bootstrap-sass": "^3.3.7",
     "core-js": "^2.4.1",
     "font-awesome": "^4.7.0",
+    "ng-bootstrap-dropdown": "^1.0.0",
     "ng2-bootstrap": "^1.6.2",
+    "ngx-dropdown": "0.0.22",
     "rxjs": "^5.1.0",
     "zone.js": "^0.8.4"
   },

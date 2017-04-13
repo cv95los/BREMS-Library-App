@@ -49,17 +49,18 @@ public class ActionRestController {
 	private LogicService logicService;
 
 	@JsonView(LoanDetail.class)
-	@RequestMapping(value = "/", method = RequestMethod.POST)
+	@RequestMapping(value = "", method = RequestMethod.POST)
 	public ResponseEntity<Action> postAction(@RequestBody Action loan, Authentication authentication,
 			HttpSession session, HttpServletRequest request) {
 
 		session.setMaxInactiveInterval(-1);
-		if ((authentication.getName().equals(userService.findOne(loan.getUser().getId()).getName())) || (request.isUserInRole("ADMIN"))) {
+		if ((authentication.getName().equals(userService.findOne(loan.getUser().getId()).getName()))
+				|| (request.isUserInRole("ADMIN"))) {
 			Date date = new Date();
 			Resource resource = resourceService.findOne(loan.getResource().getResource().getId());
 			ResourceCopy resourceCopy = resourceCopyService.findOne(loan.getResource().getID());
-			int status = logicService.reserveAResource(userService.findOne(loan.getUser().getId()), date,
-					resource, resourceCopy);
+			int status = logicService.reserveAResource(userService.findOne(loan.getUser().getId()), date, resource,
+					resourceCopy);
 			if (status == 0) {
 				return new ResponseEntity<>(logicService.getAction(), HttpStatus.CREATED);
 			} else {
@@ -71,23 +72,32 @@ public class ActionRestController {
 	}
 
 	@JsonView(LoanDetail.class)
-	@RequestMapping(value = "/all", method = RequestMethod.GET)
+	@RequestMapping(value = "", method = RequestMethod.GET)
 	public ResponseEntity<Page<Action>> getAllAction(Authentication authentication, HttpSession session,
-			HttpServletRequest request, @RequestParam (required=false) Integer page) {
+			HttpServletRequest request, @RequestParam(required = false) Integer page,
+			@RequestParam(required = false) String finished) {
 
 		session.setMaxInactiveInterval(-1);
-		if(page==null) page = 0;
+		Page<Action> loans;
+		if (page == null)
+			page = 0;
 		if (request.isUserInRole("ADMIN")) {
-			Page<Action> loans = actionService.findAll(page);
-			return new ResponseEntity<>(loans, HttpStatus.OK);
+			loans = actionService.findAll(page);
 		} else {
-			Page<Action> loans = actionService.findByUser(userService.findByName(authentication.getName()), page);
-			if (loans.getNumberOfElements()>0) {
-				return new ResponseEntity<>(loans, HttpStatus.OK);
+			if (finished == null) {
+				loans = actionService.findByDateLoanReturnAndUser(userService.findByName(authentication.getName()),
+						page, new Date(0));
 			} else {
-				return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+				if (finished.equals("true")) {
+					loans = actionService.findByUserAndDateLoanReturnNot(
+							userService.findByName(authentication.getName()), page, new Date(0));
+				} else {
+					loans = actionService.findByDateLoanReturnAndUser(userService.findByName(authentication.getName()),
+							page, new Date(0));
+				}
 			}
 		}
+		return new ResponseEntity<>(loans, HttpStatus.OK);
 	}
 
 	@JsonView(LoanDetail.class)
@@ -134,8 +144,8 @@ public class ActionRestController {
 		Date date = new Date();
 		if ((loan != null) && (loan.getID() == loanUpdated.getID())) {
 			int status;
-			if (action!=null) {
-				switch(action) {
+			if (action != null) {
+				switch (action) {
 				case "give":
 					status = logicService.addGiveDate(loan, date);
 					if (status == 0)

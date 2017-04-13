@@ -1,0 +1,263 @@
+/************************
+       PROFILE USER
+*************************/
+.tab-pane {
+	margin-top: 30px;
+}
+
+.tab-pane h4 {
+	color: #9e9b9b;
+}
+
+.tab-pane .glyphicon-pencil {
+	margin-left: 10px;
+}
+
+.navProfileUser {
+    margin-bottom: 30px;
+    margin-left: 19px;
+    margin-right: 154px
+}
+
+.contentProfile .userProfile .avatar {
+    width: 255px;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.contentProfile .userProfile .avatar img {
+    width: 188px;
+    height: 250px;
+}
+
+.viewTelephone {
+    display: inline-block;
+}
+
+.biographyEdit{
+	text-align: center;
+}
+
+
+/* Table of content */
+
+.contentProfile .userProfile .table thead th,
+.contentProfile .userProfile h4,
+.contentProfile .otherUserProfile h4 {
+    font-size: 19px;
+    font-weight: normal;
+    /*color: #CACACA;*/
+    color: #215E5D;
+    border-bottom: 1px solid #215E5D;
+    padding-bottom: 8px;
+    margin-bottom: 20px;
+}
+
+.contentProfile h4 a,
+.contentProfile .userProfile .table a {
+    font-size: 12px;
+    display: inline-block;
+    margin-left: 7px;
+    color: #A09F9F;
+}
+
+.contentProfile h4 a:hover,
+.contentProfile .userProfile .table a:hover {
+    color: #7a7979;
+}
+
+.contentProfile h4 a span {
+    margin-right: 4px;
+}
+
+.contentProfile h4 span.glyphicon-heart {
+    font-size: 15px;
+}
+
+.contentProfile .userProfile .table tbody th {
+    text-align: right;
+    width: 140px;
+    padding: 7px 10px;
+    background-color: rgba(191, 189, 102, 0.8);
+    color: #636234;
+    border-bottom: 1px solid #faf9f9;
+    border-top: 0px;
+    font-weight: normal;
+}
+
+.contentProfile .userProfile .table tbody th.lastRow {
+    border-color: #ddd;
+}
+
+.contentProfile .userProfile .table tbody td {
+    padding: 7px 10px;
+    border-bottom: 1px solid #ddd;
+    border-top: 0px;
+}
+
+.otherUserProfile {
+    margin-top: 45px;
+}
+
+.otherUserProfile .biographic {
+    margin-left: 17px;
+}
+
+.otherUserProfile .favorites {
+    margin-left: 23px;
+}
+
+
+/************************
+       BOOK BORROW
+*************************/
+
+.Profile .item {
+    margin-bottom: 40px;
+}
+
+.Profile .coverItem {
+    text-align: center;
+    padding-left: 13px;
+}
+
+.Profile .coverItem a {
+    display: block;
+    margin-top: 10px;
+    padding-left: 3px;
+}
+
+.Profile .coverItem a span {
+    margin-right: 5px;
+}
+
+.Profile .coverItem img {
+    margin-top: 12px;
+}
+
+.Profile .detailsBorrow {
+    margin-left: -25px;
+}
+
+.Profile .detailsBorrow .table th {
+    width: 205px;
+    color: #215E5D;
+    font-weight: normal;
+    padding-left: 10px;
+}
+
+.Profile .detailsBorrow .table caption {
+    padding-left: 10px;
+    color: #A2A2A2;
+}
+
+.Profile .detailsBorrow .table caption span {
+    margin-left: 8px;
+    font-size: 16px;
+    color: #3b3a3b;
+}
+
+.contentBookBorrow .detailsBorrow .table .dateReturn i {
+    margin-left: 7px;
+}
+
+.contentBookBorrow .detailsBorrow .table .dateReturn .warning {
+    color: #E4B427;
+}
+
+.contentBookBorrow .detailsBorrow .table .dateReturn .danger {
+    color: #BE3633;
+}
+
+.contentBookBorrow .detailsBorrow .table .dateReturn span {
+    font-size: 12px;
+    margin-left: 3px;
+}
+
+.contentBookBorrow .detailsBorrow .table .buttonAplazar {
+    text-align: right;
+}
+
+.contentBookBorrow .detailsBorrow .table button {
+    border-radius: 0px;
+}
+
+.contentBookBorrow .detailsBorrow .table button:hover {
+    opacity: 0.8;
+    background-color: #337ab7;
+    border-color: #2e6da4;
+}
+
+.listItems .item .coverItem {
+    text-align: center;
+}
+
+.listItems .item .coverItem img {
+    margin-bottom: 5px;
+}
+
+.listItems .item .coverItem .glyphicon {
+    display: inline;
+    margin: 5px 10px 5px 0px;
+}
+
+
+/************************
+       BOOK BORROW
+*************************/
+
+.contentBookHistory .item {
+    margin-bottom: 60px;
+}
+
+.contentBookHistory .detailsBorrow .table ul {
+    margin-bottom: 0px;
+}
+
+.contentBookHistory .detailsBorrow .table .myRating ul {
+    cursor: pointer;
+}
+
+.contentBookHistory .detailsBorrow .table .myRating ul .staticStar:hover {
+    background-image: url("../img/star_full.png");
+}
+
+.Tooltip {
+    position: relative;
+    cursor: pointer;
+    width: 140px;
+}
+
+.Tooltip .tooltipText {
+    visibility: hidden;
+    width: 135px;
+    background-color: rgba(0, 0, 0, 0.80);
+    color: #faf9f9;
+    text-align: left;
+    border-radius: 0px;
+    padding: 5px 10px;
+    position: absolute;
+    z-index: 1;
+    top: 115%;
+    left: 25%;
+    margin-left: -60px;
+    font-size: 12px;
+    opacity: 0;
+    transition: opacity 1s;
+}
+
+.Tooltip .tooltipText::after {
+    content: "";
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent transparent rgba(0, 0, 0, 0.80) transparent;
+}
+
+.Tooltip:hover .tooltipText {
+    visibility: visible;
+    opacity: 1;
+}

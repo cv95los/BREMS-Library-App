@@ -30,7 +30,7 @@ public class ResourceTypeRestController {
 	@Autowired
 	private ResourceService resourceService;
 
-	@RequestMapping(value = "/", method = RequestMethod.POST)
+	@RequestMapping(value = "", method = RequestMethod.POST)
 	@ResponseStatus(HttpStatus.CREATED)
 	public ResourceType postResourceType(@RequestBody ResourceType resourceType) {
 
@@ -39,7 +39,7 @@ public class ResourceTypeRestController {
 		return resourceType;
 	}
 
-	@RequestMapping(value = "/all", method = RequestMethod.GET)
+	@RequestMapping(value = "", method = RequestMethod.GET)
 	public ResponseEntity<Page<ResourceType>> getResourceTypes(HttpSession session, @RequestParam (required=false) Integer page) {
 
 		session.setMaxInactiveInterval(-1);
