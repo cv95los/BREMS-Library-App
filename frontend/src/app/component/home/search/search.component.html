@@ -62,7 +62,7 @@
                   </div>
                 </div>
               </ng-template>
-              <button id="moreSearch" type="button" class="btn btn-lg btn-block btn-view-more">Ver más</button>
+              <button id="moreSearch" (click)="addSearch()" type="button" class="btn btn-lg btn-block btn-view-more">{{showMore}} {{search2}}</button>
             </div>
           </ng-template>
       </div>
